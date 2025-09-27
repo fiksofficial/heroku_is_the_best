@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Panel</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #c8c8c8;
+            overflow: hidden;
+        }
+        
+        .container {
+            /* Контейнер 16:9 */
+            position: absolute;
+            width: 100vw;
+            height: 56.25vw;
+            max-height: 100vh;
+            max-width: 177.78vh;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            /* Анимированный Minecraft фон с повторением */
+            background: src('background.webp') repeat center center;
+            background-size: cover;
+            padding: 1cm;
+            box-sizing: border-box;
+            animation: backgroundScroll 60s linear infinite;
+        }
+        
+        @keyframes backgroundScroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+        
+        .status-panel {
+            background-color: rgba(18, 18, 18, 0.4);
+            border: 2px solid rgba(100, 100, 100, 0.5);
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            padding: 0.5cm;
+            box-sizing: border-box;
+            line-height: 1.4;
+            font-size: 16px;
+            backdrop-filter: blur(2px);
+            display: flex;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        }
+        
+        .content {
+            flex: 1;
+            padding-right: 0.5cm;
+        }
+        
+        .status-line {
+            display: flex;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px black;
+        }
+        
+        .label {
+            color: #a0a0a0;
+            width: 100px;
+            display: inline-block;
+            text-align: right;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .value {
+            color: #f0f0f0;
+            flex-grow: 1;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            color: #7CFC00;
+        }
+        
+        .image-container {
+            width: 35%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 2px dashed rgba(150, 150, 150, 0.5);
+            padding-left: 0.5cm;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid rgba(200, 200, 200, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status-panel">
+            <div class="content">
+                <div class="status-line">
+                    <span class="label"></span>
+                    <span class="value highlight"></span>
+                </div>
+                <div class="status-line">
+                    <span class="label"></span>
+                    <span class="value"></span>
+                </div>
+                <div class="status-line">
+                    <span class="label"></span>
+                    <span class="value"></span>
+                </div>
+                <div class="status-line">
+                    <span class="label"></span>
+                    <span class="value"></span>
+                </div>
+                <div class="status-line">
+                    <span class="label"></span>
+                    <span class="value"></span>
+                </div>
+                <div class="status-line">
+                    <span class="label"></span>
+                    <span class="value"></span>
+                </div>
+                <div class="status-line">
+                    <span class="label"></span>
+                    <span class="value"></span>
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="avatar.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
